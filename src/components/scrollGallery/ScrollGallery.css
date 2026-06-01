@@ -1,26 +1,19 @@
 .scroll-gallery-section {
-  position: relative;
   width: 100%;
-  height: 300svh;
+  padding: 120px var(--page-padding);
 
   background: #eee6da;
   color: #111111;
 }
 
-.scroll-gallery-sticky {
-  position: sticky;
-  top: 0;
-
-  width: 100%;
-  height: 100svh;
-  padding: 90px var(--page-padding);
+.scroll-gallery-inner {
+  width: min(100%, var(--container));
+  margin: 0 auto;
 
   display: grid;
   grid-template-columns: 1fr 0.8fr;
   align-items: center;
   gap: clamp(38px, 6vw, 90px);
-
-  overflow: hidden;
 }
 
 .scroll-gallery-images {
@@ -47,6 +40,16 @@
   object-position: center;
 
   opacity: 0;
+  transform: scale(1.04);
+
+  transition:
+    opacity 0.9s ease,
+    transform 5s ease;
+}
+
+.scroll-gallery-image.is-active {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .scroll-gallery-content {
@@ -77,6 +80,20 @@
   left: 0;
 
   max-width: 520px;
+
+  opacity: 0;
+  transform: translateY(22px);
+  pointer-events: none;
+
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease;
+}
+
+.scroll-gallery-text.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .scroll-gallery-text h2 {
@@ -102,28 +119,88 @@
   font-weight: 500;
 }
 
+.gallery-controls {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  z-index: 3;
+
+  display: flex;
+  gap: 10px;
+}
+
+.gallery-arrow {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.9);
+  color: #111111;
+
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.gallery-arrow:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+}
+
+.gallery-dots {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 28px;
+}
+
+.gallery-dot {
+  width: 11px;
+  height: 11px;
+  padding: 0;
+
+  border-radius: var(--radius-pill);
+  border: 1.5px solid rgba(17, 17, 17, 0.4);
+  background: transparent;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.gallery-dot.is-active {
+  background: #111111;
+  border-color: #111111;
+  transform: scale(1.15);
+}
+
 /* Tablet */
 @media (max-width: 900px) {
   .scroll-gallery-section {
-    height: auto;
+    padding: 86px var(--page-padding);
   }
 
-  .scroll-gallery-sticky {
-    position: relative;
-    height: auto;
-    padding: 86px var(--page-padding);
-
+  .scroll-gallery-inner {
     grid-template-columns: 1fr;
     gap: 34px;
   }
 
   .scroll-gallery-images {
     height: auto;
-    aspect-ratio: 4 / 5;
-  }
-
-  .scroll-gallery-image {
-    position: absolute;
+    aspect-ratio: 16 / 11;
+    border-radius: var(--radius-lg);
   }
 
   .scroll-gallery-content {
@@ -131,31 +208,47 @@
   }
 
   .scroll-gallery-text-wrapper {
-    min-height: 190px;
+    min-height: 170px;
   }
 
   .scroll-gallery-text {
     left: 50%;
-    transform: translateX(-50%);
+    width: min(100%, 440px);
+    transform: translate(-50%, 22px);
+  }
 
-    width: min(100%, 420px);
+  .scroll-gallery-text.is-active {
+    transform: translate(-50%, 0);
   }
 
   .scroll-gallery-text p {
     margin-left: auto;
     margin-right: auto;
   }
+
+  .gallery-controls {
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+  }
+
+  .gallery-dots {
+    justify-content: center;
+  }
 }
 
 /* Mobile */
 @media (max-width: 520px) {
-  .scroll-gallery-sticky {
+  .scroll-gallery-section {
     padding: 68px var(--page-padding);
   }
 
+  .scroll-gallery-inner {
+    gap: 28px;
+  }
+
   .scroll-gallery-images {
-    aspect-ratio: 4 / 5.2;
-    border-radius: var(--radius-lg);
+    aspect-ratio: 4 / 5;
   }
 
   .scroll-gallery-eyebrow {
@@ -163,7 +256,7 @@
   }
 
   .scroll-gallery-text-wrapper {
-    min-height: 170px;
+    min-height: 155px;
   }
 
   .scroll-gallery-text h2 {
@@ -174,5 +267,16 @@
   .scroll-gallery-text p {
     margin-top: 18px;
     font-size: 0.86rem;
+  }
+
+  .gallery-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 0.95rem;
+  }
+
+  .gallery-dot {
+    width: 10px;
+    height: 10px;
   }
 }
