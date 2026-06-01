@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+:root {
+  /* Colors */
+  --white: #ffffff;
+  --black: #050505;
+
+  --text: #d9d9d9;
+  --text-muted: #9a9a9a;
+  --text-soft: rgba(255, 255, 255, 0.72);
+  --text-h: #ffffff;
+
+  --bg: #080808;
+  --bg-soft: #111111;
+  --bg-card: #171717;
+  --bg-elevated: #1f1f1f;
+
+  --border: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.22);
+
+  --accent: #ffffff;
+  --accent-soft: rgba(255, 255, 255, 0.08);
+  --accent-hover: rgba(255, 255, 255, 0.14);
+  --accent-border: rgba(255, 255, 255, 0.28);
+
+  /* Navbar */
+  --nav-bg: rgba(18, 18, 18, 0.82);
+  --nav-bg-mobile: rgba(18, 18, 18, 0.96);
+  --nav-height-desktop: 78px;
+  --nav-height-tablet: 64px;
+  --nav-height-mobile: 60px;
+
+  /* Hero overlays */
+  --overlay-dark: rgba(0, 0, 0, 0.72);
+  --overlay-mid: rgba(0, 0, 0, 0.35);
+  --overlay-soft: rgba(0, 0, 0, 0.15);
+  --overlay-bottom: rgba(0, 0, 0, 0.75);
+
+  /* Buttons */
+  --button-bg: #ffffff;
+  --button-text: #050505;
+  --button-hover: #e8e8e8;
+  --button-secondary-bg: rgba(255, 255, 255, 0.1);
+  --button-secondary-hover: rgba(255, 255, 255, 0.18);
+
+  /* Radius */
+  --radius-sm: 9px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow:
+    rgba(0, 0, 0, 0.35) 0 18px 45px,
+    rgba(0, 0, 0, 0.22) 0 8px 18px;
+
+  --shadow-soft:
+    rgba(0, 0, 0, 0.22) 0 10px 30px;
+
+  /* Fonts */
+  --sans: "Poppins", sans-serif;
+  --heading: "Poppins", sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  /* Layout */
+  --container: 1200px;
+  --page-padding: 40px;
+  --page-padding-mobile: 18px;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: dark;
+  color: var(--text);
+  background: var(--bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-image:
+    radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.08),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(120, 120, 120, 0.12),
+      transparent 26%
+    ),
+    linear-gradient(180deg, #050505 0%, #101010 100%);
+}
+
+@media (max-width: 1024px) {
+  :root {
+    font-size: 16px;
+    --page-padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --page-padding: 14px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100svh;
+
+  color: var(--text);
+  font-family: var(--sans);
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.06),
+      transparent 28%
+    ),
+    linear-gradient(180deg, #050505 0%, #101010 100%);
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text-h);
+  font-family: var(--heading);
+}
+
+p {
+  color: var(--text);
+}
