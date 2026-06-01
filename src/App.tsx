@@ -8,6 +8,7 @@ import RideCard from "./components/rideCard/RideCard";
 import CampaignCollage from "./components/campaignCollage/CampaignCollage";
 import ScrollGallery from "./components/scrollGallery/ScrollGallery";
 import "./App.css";
+import Footer from "./components/footer/Footer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -241,6 +242,7 @@ function App() {
       <CampaignCollage />
 
       <ScrollGallery />
+      <Footer />
     </main>
   );
 }
