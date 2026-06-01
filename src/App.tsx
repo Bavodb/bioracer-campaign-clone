@@ -6,6 +6,7 @@ import Navbar from "./components/navbar/Navbar";
 import HeroSection from "./components/heroSection/HeroSection";
 import RideCard from "./components/rideCard/RideCard";
 import CampaignCollage from "./components/campaignCollage/CampaignCollage";
+import ScrollGallery from "./components/scrollGallery/ScrollGallery";
 import "./App.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -238,6 +239,8 @@ function App() {
         </div>
       </section>
       <CampaignCollage />
+
+      <ScrollGallery />
     </main>
   );
 }
