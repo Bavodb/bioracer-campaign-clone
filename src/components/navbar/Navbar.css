@@ -20,6 +20,7 @@
 }
 
 .site-nav {
+  position: relative;
   width: 100%;
   height: 78px;
   margin: 0 auto;
@@ -29,19 +30,26 @@
   align-items: center;
 }
 
-.nav-left {
+.nav-left,
+.nav-right {
   display: flex;
   align-items: center;
   gap: clamp(18px, 2vw, 32px);
+}
 
-  min-width: 0;
+.nav-left {
+  justify-self: start;
+}
+
+.nav-right {
+  justify-self: end;
 }
 
 .nav-link {
   color: rgba(255, 255, 255, 0.92);
   text-decoration: none;
   font-family: var(--sans, "Poppins", sans-serif);
-  font-size: clamp(0.72rem, 0.95vw, 0.85rem);
+  font-size: clamp(0.7rem, 0.85vw, 0.8rem);
   font-weight: 700;
   line-height: 1;
   white-space: nowrap;
@@ -62,7 +70,6 @@
   justify-content: center;
 
   justify-self: center;
-  padding: 0 36px;
 }
 
 .nav-brand img {
@@ -72,12 +79,38 @@
   object-fit: contain;
 }
 
+.nav-icon-link {
+  width: 34px;
+  height: 34px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.1);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.nav-icon-link:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+.nav-icon-link img {
+  width: 17px;
+  height: 17px;
+  object-fit: contain;
+}
+
 .menu-toggle {
-  justify-self: end;
+  position: absolute;
+  right: 0;
 
   display: none;
-  position: relative;
-
   width: 42px;
   height: 42px;
   padding: 0;
@@ -132,18 +165,15 @@
   display: none;
 }
 
-/* Iets smallere desktops */
+/* Kleinere desktops */
 @media (max-width: 1180px) {
   .site-header {
     padding: 0 28px;
   }
 
-  .nav-left {
-    gap: 20px;
-  }
-
-  .nav-brand {
-    padding: 0 24px;
+  .nav-left,
+  .nav-right {
+    gap: 18px;
   }
 
   .nav-brand img {
@@ -151,7 +181,17 @@
   }
 
   .nav-link {
-    font-size: 0.76rem;
+    font-size: 0.7rem;
+  }
+
+  .nav-icon-link {
+    width: 32px;
+    height: 32px;
+  }
+
+  .nav-icon-link img {
+    width: 15px;
+    height: 15px;
   }
 }
 
@@ -168,12 +208,9 @@
     justify-content: center;
   }
 
-  .nav-left {
+  .nav-left,
+  .nav-right {
     display: none;
-  }
-
-  .nav-brand {
-    padding: 0;
   }
 
   .nav-brand img {
@@ -181,8 +218,6 @@
   }
 
   .menu-toggle {
-    position: absolute;
-    right: 0;
     display: block;
   }
 

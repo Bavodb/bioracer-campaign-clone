@@ -6,7 +6,18 @@ type NavItem = {
   href: string;
 };
 
-const navItems: NavItem[] = [
+const leftNavItems: NavItem[] = [
+  { label: "Home", href: "#home" },
+  { label: "Voor elke rit", href: "#every-ride" },
+  { label: "Voordelen", href: "#benefits" },
+  { label: "Campagne", href: "#campaign-assets" },
+];
+
+const rightNavItems: NavItem[] = [
+  { label: "Elke rit telt", href: "#gallery" },
+];
+
+const mobileNavItems: NavItem[] = [
   { label: "Home", href: "#home" },
   { label: "Voor elke rit", href: "#every-ride" },
   { label: "Video", href: "#video" },
@@ -41,7 +52,7 @@ function Navbar() {
     <header className={`site-header ${isScrolled ? "is-scrolled" : ""}`}>
       <nav className="site-nav" aria-label="Hoofdnavigatie">
         <div className="nav-left">
-          {navItems.map((item) => (
+          {leftNavItems.map((item) => (
             <a key={item.href} href={item.href} className="nav-link">
               {item.label}
             </a>
@@ -51,6 +62,18 @@ function Navbar() {
         <a className="nav-brand" href="#home" aria-label="Bioracer home">
           <img src="/icons/bioracer-logo.webp" alt="Bioracer" />
         </a>
+
+        <div className="nav-right">
+          <a href="#video" className="nav-icon-link" aria-label="Bekijk video">
+            <img src="/icons/video-icon.png" alt="video-icon" />
+          </a>
+
+          {rightNavItems.map((item) => (
+            <a key={item.href} href={item.href} className="nav-link">
+              {item.label}
+            </a>
+          ))}
+        </div>
 
         <button
           type="button"
@@ -70,7 +93,7 @@ function Navbar() {
         className={`mobile-menu ${isMenuOpen ? "is-open" : ""}`}
         id="mobile-navigation"
       >
-        {navItems.map((item) => (
+        {mobileNavItems.map((item) => (
           <a
             key={item.href}
             href={item.href}
