@@ -20,32 +20,32 @@
 }
 
 .site-nav {
-  position: relative;
   width: 100%;
   height: 78px;
   margin: 0 auto;
 
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: center;
 }
 
 .nav-left {
-  position: absolute;
-  left: 0;
-
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: clamp(18px, 2vw, 32px);
+
+  min-width: 0;
 }
 
 .nav-link {
   color: rgba(255, 255, 255, 0.92);
   text-decoration: none;
   font-family: var(--sans, "Poppins", sans-serif);
-  font-size: 0.85rem;
+  font-size: clamp(0.72rem, 0.95vw, 0.85rem);
   font-weight: 700;
   line-height: 1;
+  white-space: nowrap;
+
   transition:
     color 0.2s ease,
     transform 0.2s ease;
@@ -60,6 +60,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  justify-self: center;
+  padding: 0 36px;
 }
 
 .nav-brand img {
@@ -70,10 +73,11 @@
 }
 
 .menu-toggle {
-  position: absolute;
-  right: 0;
+  justify-self: end;
 
   display: none;
+  position: relative;
+
   width: 42px;
   height: 42px;
   padding: 0;
@@ -91,6 +95,7 @@
   height: 2px;
   border-radius: 999px;
   background: #ffffff;
+
   transition:
     transform 0.25s ease,
     opacity 0.25s ease,
@@ -127,6 +132,30 @@
   display: none;
 }
 
+/* Iets smallere desktops */
+@media (max-width: 1180px) {
+  .site-header {
+    padding: 0 28px;
+  }
+
+  .nav-left {
+    gap: 20px;
+  }
+
+  .nav-brand {
+    padding: 0 24px;
+  }
+
+  .nav-brand img {
+    height: 38px;
+  }
+
+  .nav-link {
+    font-size: 0.76rem;
+  }
+}
+
+/* Tablet + mobile */
 @media (max-width: 900px) {
   .site-header {
     padding: 0 18px;
@@ -134,10 +163,17 @@
 
   .site-nav {
     height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .nav-left {
     display: none;
+  }
+
+  .nav-brand {
+    padding: 0;
   }
 
   .nav-brand img {
@@ -145,6 +181,8 @@
   }
 
   .menu-toggle {
+    position: absolute;
+    right: 0;
     display: block;
   }
 
@@ -181,6 +219,7 @@
     font-weight: 700;
 
     background: rgba(255, 255, 255, 0.06);
+
     transition:
       background 0.2s ease,
       transform 0.2s ease;
