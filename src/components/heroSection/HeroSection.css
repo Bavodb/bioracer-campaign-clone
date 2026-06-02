@@ -157,13 +157,17 @@
 
 .hero-dots {
   position: absolute;
-  right: 42px;
+  left: 50%;
+  right: auto;
   bottom: 42px;
   z-index: 3;
 
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
+
+  transform: translateX(-50%);
 }
 
 .hero-dot {
