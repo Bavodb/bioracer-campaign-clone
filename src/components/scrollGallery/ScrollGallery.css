@@ -119,48 +119,23 @@
   font-weight: 500;
 }
 
-.gallery-controls {
+/* Dots staan nu op de foto onderaan in het midden */
+.gallery-dots {
   position: absolute;
-  left: 24px;
+  left: 50%;
   bottom: 24px;
   z-index: 3;
 
   display: flex;
-  gap: 10px;
-}
-
-.gallery-arrow {
-  width: 46px;
-  height: 46px;
-
-  display: flex;
   align-items: center;
   justify-content: center;
-
-  border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.9);
-  color: #111111;
-
-  font-size: 1.1rem;
-  font-weight: 800;
-  cursor: pointer;
-
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease;
-}
-
-.gallery-arrow:hover {
-  background: #ffffff;
-  transform: translateY(-2px);
-}
-
-.gallery-dots {
-  display: flex;
-  align-items: center;
   gap: 10px;
 
-  margin-top: 28px;
+  padding: 10px 14px;
+
+  border-radius: var(--radius-pill);
+  background: rgba(0, 0, 0, 0.36);
+  transform: translateX(-50%);
 }
 
 .gallery-dot {
@@ -169,7 +144,7 @@
   padding: 0;
 
   border-radius: var(--radius-pill);
-  border: 1.5px solid rgba(17, 17, 17, 0.4);
+  border: 1.5px solid rgba(255, 255, 255, 0.75);
   background: transparent;
 
   cursor: pointer;
@@ -181,8 +156,8 @@
 }
 
 .gallery-dot.is-active {
-  background: #111111;
-  border-color: #111111;
+  background: #ffffff;
+  border-color: #ffffff;
   transform: scale(1.15);
 }
 
@@ -226,14 +201,8 @@
     margin-right: auto;
   }
 
-  .gallery-controls {
-    left: 50%;
-    bottom: 18px;
-    transform: translateX(-50%);
-  }
-
   .gallery-dots {
-    justify-content: center;
+    bottom: 18px;
   }
 }
 
@@ -269,10 +238,10 @@
     font-size: 0.86rem;
   }
 
-  .gallery-arrow {
-    width: 40px;
-    height: 40px;
-    font-size: 0.95rem;
+  .gallery-dots {
+    bottom: 16px;
+    padding: 9px 12px;
+    gap: 9px;
   }
 
   .gallery-dot {

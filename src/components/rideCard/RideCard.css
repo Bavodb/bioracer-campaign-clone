@@ -87,6 +87,21 @@
 
   .ride-card-image-wrapper {
     aspect-ratio: 16 / 11;
+    background: #ddd2c4;
+  }
+
+  .ride-card-image {
+    width: 100%;
+    height: 180%;
+  
+    object-fit: contain;
+    object-position: center bottom;
+
+    transform: none;
+  }
+
+  .ride-card:hover .ride-card-image {
+    transform: none;
   }
 
   .ride-card-content {

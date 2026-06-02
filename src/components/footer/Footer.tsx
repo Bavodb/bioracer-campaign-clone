@@ -5,12 +5,13 @@ const footerLinks = [
   { label: "Voor elke rit", href: "#every-ride" },
   { label: "Video", href: "#video" },
   { label: "Voordelen", href: "#benefits" },
-  { label: "Campagne-assets", href: "#campaign-assets" },
+  { label: "Campagne", href: "#campaign-assets" },
+  { label: "Elke rit telt", href: "#gallery" },
 ];
 
 function Footer() {
   return (
-    <footer className="site-footer">
+    <footer className="site-footer" id="contact">
       <div className="footer-inner">
         <div className="footer-brand">
           <a href="#home" aria-label="Bioracer home">

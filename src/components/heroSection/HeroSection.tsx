@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import "./HeroSection.css";
 
 const heroImages = [
-  "/images/hero-image1.jpg",
-  "/images/hero-image2.jpg",
-  "/images/hero-image3.jpg",
+  "/images/hero-image1.png",
+  "/images/hero-image2.png",
+  "/images/hero-image3.png",
 ];
 
 function HeroSection() {

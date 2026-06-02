@@ -3,40 +3,30 @@ import "./ScrollGallery.css";
 
 const gallerySlides = [
   {
-    title: "De ochtendrit.",
-    text: "Een frisse start van de dag, met comfort dat je onderweg ondersteunt.",
-    image: "/images/hero-image1.jpg",
+    title: "Niet alleen voor profs.",
+    text: "Bioracer brengt professionele fietskledij naar het dagelijkse leven van elke fietser.",
+    image: "/images/scrollGallery-images/scrollGallery-image1.png",
   },
   {
-    title: "Door weer en wind.",
-    text: "Niet elke rit is perfect, maar goede fietskledij maakt wel het verschil.",
-    image: "/images/hero-image2.jpg",
+    title: "Van straat tot spoor.",
+    text: "Of je nu fietst, pendelt of onderweg even stopt: comfort blijft de rode draad.",
+    image: "/images/scrollGallery-images/scrollGallery-image2.png",
   },
   {
-    title: "Aankomen met focus.",
-    text: "Elke dagelijkse rit wordt een klein moment van prestatie en voldoening.",
-    image: "/images/hero-image3.jpg",
+    title: "Elke rit telt.",
+    text: "Groot of klein, sportief of alledaags: elke verplaatsing verdient kwaliteit.",
+    image: "/images/scrollGallery-images/scrollGallery-image3.png",
   },
 ];
 
 function ScrollGallery() {
   const [activeSlide, setActiveSlide] = useState(0);
 
-  const goToNextSlide = () => {
-    setActiveSlide((currentSlide) =>
-      currentSlide === gallerySlides.length - 1 ? 0 : currentSlide + 1,
-    );
-  };
-
-  const goToPreviousSlide = () => {
-    setActiveSlide((currentSlide) =>
-      currentSlide === 0 ? gallerySlides.length - 1 : currentSlide - 1,
-    );
-  };
-
   useEffect(() => {
     const interval = window.setInterval(() => {
-      goToNextSlide();
+      setActiveSlide((currentSlide) =>
+        currentSlide === gallerySlides.length - 1 ? 0 : currentSlide + 1,
+      );
     }, 5000);
 
     return () => {
@@ -59,24 +49,18 @@ function ScrollGallery() {
             />
           ))}
 
-          <div className="gallery-controls">
-            <button
-              type="button"
-              className="gallery-arrow"
-              aria-label="Vorige slide"
-              onClick={goToPreviousSlide}
-            >
-              ←
-            </button>
-
-            <button
-              type="button"
-              className="gallery-arrow"
-              aria-label="Volgende slide"
-              onClick={goToNextSlide}
-            >
-              →
-            </button>
+          <div className="gallery-dots" aria-label="Slideshow navigatie">
+            {gallerySlides.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                className={`gallery-dot ${
+                  index === activeSlide ? "is-active" : ""
+                }`}
+                aria-label={`Toon slide ${index + 1}`}
+                onClick={() => setActiveSlide(index)}
+              />
+            ))}
           </div>
         </div>
 
@@ -94,20 +78,6 @@ function ScrollGallery() {
                 <h2>{slide.title}</h2>
                 <p>{slide.text}</p>
               </div>
-            ))}
-          </div>
-
-          <div className="gallery-dots" aria-label="Slideshow navigatie">
-            {gallerySlides.map((_, index) => (
-              <button
-                key={index}
-                type="button"
-                className={`gallery-dot ${
-                  index === activeSlide ? "is-active" : ""
-                }`}
-                aria-label={`Toon slide ${index + 1}`}
-                onClick={() => setActiveSlide(index)}
-              />
             ))}
           </div>
         </div>

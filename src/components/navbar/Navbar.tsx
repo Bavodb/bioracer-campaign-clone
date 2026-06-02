@@ -7,11 +7,12 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-  { label: "Concept", href: "#concept" },
-  { label: "Video", href: "#video" },
+  { label: "Home", href: "#home" },
   { label: "Voor elke rit", href: "#every-ride" },
-  { label: "Collectie", href: "#collection" },
-  { label: "Contact", href: "#contact" },
+  { label: "Video", href: "#video" },
+  { label: "Voordelen", href: "#benefits" },
+  { label: "Campagne", href: "#campaign-assets" },
+  { label: "Elke rit telt", href: "#gallery" },
 ];
 
 function Navbar() {

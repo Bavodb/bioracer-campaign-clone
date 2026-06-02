@@ -7,8 +7,9 @@ import HeroSection from "./components/heroSection/HeroSection";
 import RideCard from "./components/rideCard/RideCard";
 import CampaignCollage from "./components/campaignCollage/CampaignCollage";
 import ScrollGallery from "./components/scrollGallery/ScrollGallery";
-import "./App.css";
 import Footer from "./components/footer/Footer";
+
+import "./App.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,19 +17,19 @@ const rideCards = [
   {
     title: "Voor de ochtendrit",
     text: "Start je dag met comfort, focus en fietskledij die mee beweegt tijdens elke verplaatsing.",
-    image: "/images/ride-card-1.jpg",
+    image: "/images/rideCards-images/ride-card-1.png",
     alt: "Pendelaar die 's ochtends met de fiets vertrekt",
   },
   {
     title: "Voor weer en wind",
     text: "Onderweg door regen, wind of kou? Bioracer ondersteunt je rit in verschillende omstandigheden.",
-    image: "/images/ride-card-2.jpg",
+    image: "/images/rideCards-images/ride-card-2.png",
     alt: "Fietser onderweg in wisselende weersomstandigheden",
   },
   {
     title: "Voor elke dag",
     text: "Niet alleen voor profs of wedstrijden, maar ook voor dagelijkse fietsers die kwaliteit willen voelen.",
-    image: "/images/ride-card-3.jpg",
+    image: "/images/rideCards-images/ride-card-3.png",
     alt: "Fietser die aankomt op het werk",
   },
 ];
@@ -120,7 +121,9 @@ function App() {
     <main className="page-shell">
       <Navbar />
 
-      <HeroSection />
+      <div id="home">
+        <HeroSection />
+      </div>
 
       <section
         className="every-ride-section"
@@ -166,7 +169,8 @@ function App() {
 
             <p>
               Een dagelijkse pendelrit voelt misschien gewoon, maar met de
-              juiste kledij wordt elke rit comfortabeler, sterker en waardevoller.
+              juiste kledij wordt elke rit comfortabeler, sterker en
+              waardevoller.
             </p>
 
             <a href="#video" className="video-button">
@@ -187,8 +191,6 @@ function App() {
       >
         <div className="benefits-inner">
           <div className="benefits-heading">
-           
-
             <h2>Comfort in elke situatie.</h2>
 
             <p>
@@ -239,9 +241,11 @@ function App() {
           </div>
         </div>
       </section>
+
       <CampaignCollage />
 
       <ScrollGallery />
+
       <Footer />
     </main>
   );
