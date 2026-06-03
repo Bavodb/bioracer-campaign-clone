@@ -2,25 +2,32 @@ import "./CampaignCollage.css";
 
 const collageItems = [
   {
-    title: "Flyer",
-    label: "Print asset",
-    image: "/images/collage-flyer.jpg",
-    alt: "Flyer van de Bioracer campagne Elke rit telt",
-    className: "collage-item-large",
+    title: "Bioracer flyer",
+    label: "Hoofdposter",
+    image: "/images/flyer/flyer-bioracer.png",
+    alt: "Bioracer flyer met de campagne Elke rit telt",
+    className: "collage-item-featured",
   },
   {
-    title: "Folder",
-    label: "Campagne-informatie",
-    image: "/images/collage-folder.jpg",
-    alt: "Folder van de Bioracer campagne",
-    className: "collage-item-tall",
+    title: "QR flyer",
+    label: "Campagneposter",
+    image: "/images/flyer/flyer-qr-green.png",
+    alt: "Flyer met de slogan Elke rit telt en een groene QR-sectie",
+    className: "collage-item-qr",
   },
   {
-    title: "Stickers",
-    label: "Offline herkenning",
-    image: "/images/collage-stickers.jpg",
-    alt: "Stickers met de slogan Elke rit telt",
-    className: "collage-item-small",
+    title: "Scan poster",
+    label: "Directe actie",
+    image: "/images/flyer/flyer-qr-green2.png",
+    alt: "Poster met een grote QR-code voor de Bioracer campagne",
+    className: "collage-item-scan",
+  },
+  {
+    title: "Sticker",
+    label: "Street signal",
+    image: "/images/flyer/sticker-blue.png",
+    alt: "Blauwe Bioracer-sticker",
+    className: "collage-item-sticker",
   },
 ];
 
@@ -29,13 +36,13 @@ function CampaignCollage() {
     <section className="collage-section" id="campaign-assets">
       <div className="collage-inner">
         <div className="collage-heading">
-
+          <span className="collage-eyebrow">Printcampagne</span>
           <h2>Van scherm tot straat.</h2>
 
           <p>
-            De campagne leeft niet alleen online. Flyers, folders en stickers
-            zorgen ervoor dat “Elke rit telt.” ook zichtbaar wordt op plekken
-            waar pendelaars echt passeren.
+            De campagne leeft niet alleen online. Flyers en stickers zorgen
+            ervoor dat “Elke rit telt.” ook zichtbaar wordt op plekken waar
+            pendelaars echt passeren.
           </p>
         </div>
 
@@ -57,14 +64,14 @@ function CampaignCollage() {
           <div className="collage-text-card">
             <span>#ElkeRitTelt</span>
             <p>
-              Alle printmaterialen verwijzen via QR-code naar dezelfde
-              campagnewebsite. Zo wordt het offline bereik ook meetbaar.
+              De flyer, de QR-varianten en de sticker delen hetzelfde neon
+              accent, zodat de campagne herkenbaar blijft en toch krachtig
+              afsteekt tegen de donkere pagina.
             </p>
           </div>
         </div>
       </div>
     </section>
-    
   );
 }
 
