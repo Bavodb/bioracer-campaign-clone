@@ -37,6 +37,18 @@ const rideCards = [
 function App() {
   const cardsSectionRef = useRef<HTMLElement | null>(null);
   const benefitsSectionRef = useRef<HTMLElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  const handleVideoClick = () => {
+    const video = videoRef.current;
+
+    if (!video) {
+      return;
+    }
+
+    video.scrollIntoView({ behavior: "smooth", block: "center" });
+    void video.play();
+  };
 
   useEffect(() => {
     const cardsSection = cardsSectionRef.current;
@@ -156,12 +168,14 @@ function App() {
 
       <section className="video-section" id="video">
         <div className="video-inner">
-          <div className="video-frame video-placeholder">
-            <div className="video-placeholder-content">
-              <span className="play-icon" aria-hidden="true">
-                ▶
-              </span>
-            </div>
+          <div className="video-frame">
+            <video ref={videoRef} controls playsInline preload="metadata">
+              <source
+                src="/video/Groep36_FinaleCampagne.mp4"
+                type="video/mp4"
+              />
+              Je browser ondersteunt deze video niet.
+            </video>
           </div>
 
           <div className="video-content">
@@ -173,9 +187,13 @@ function App() {
               waardevoller.
             </p>
 
-            <a href="#video" className="video-button">
+            <button
+              type="button"
+              className="video-button"
+              onClick={handleVideoClick}
+            >
               Video bekijken
-            </a>
+            </button>
 
             <p className="video-caption">
               Van ochtendrit tot aankomst op het werk: elke rit telt.
@@ -195,7 +213,8 @@ function App() {
 
             <p>
               Elke rit vraagt iets anders. Daarom combineert Bioracer comfort,
-              bescherming en kwaliteit voor fietsers die dagelijks onderweg zijn.
+              bescherming en kwaliteit voor fietsers die dagelijks onderweg
+              zijn.
             </p>
           </div>
 
@@ -214,7 +233,9 @@ function App() {
 
               <div>
                 <h3>Bescherming</h3>
-                <p>Ondersteuning bij wind, regen en wisselende omstandigheden.</p>
+                <p>
+                  Ondersteuning bij wind, regen en wisselende omstandigheden.
+                </p>
               </div>
             </article>
 

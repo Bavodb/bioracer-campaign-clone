@@ -62,7 +62,6 @@
   }
 }
 
-
 .video-section {
   width: 100%;
   padding: 110px var(--page-padding);
@@ -188,9 +187,13 @@
   margin-top: 32px;
   padding: 0 28px;
 
+  border: none;
   border-radius: var(--radius-sm);
   background: var(--button-bg);
   color: var(--button-text);
+  appearance: none;
+  cursor: pointer;
+  font: inherit;
 
   font-size: 0.88rem;
   font-weight: 800;
@@ -210,7 +213,6 @@
   color: var(--text-muted) !important;
 
   font-size: 0.82rem !important;
- 
 }
 
 /* Tablet + mobile */
@@ -264,8 +266,6 @@
       0 18px 38px rgba(0, 0, 0, 0.32);
   }
 
-
-
   .video-content h2 {
     font-size: clamp(2rem, 11vw, 3rem);
     letter-spacing: -0.02em;
@@ -288,7 +288,6 @@
     font-size: 0.76rem !important;
   }
 }
-
 
 /* BENEFITS SECTION */
 
@@ -314,10 +313,8 @@
   position: sticky;
   top: 120px;
 
-  max-width:1000 px;
+  max-width: 1000 px;
 }
-
-
 
 .benefits-heading h2 {
   margin: 0;
@@ -482,5 +479,3 @@
     font-size: 0.86rem;
   }
 }
-
-
